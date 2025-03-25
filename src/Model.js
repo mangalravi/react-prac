@@ -6,7 +6,7 @@ const Model = () => {
         setIsOpen(true)
     }
     const closeModel = () => {
-        setIsOpen(false)
+        setIsOpen(false);
     }
       return (
         <>

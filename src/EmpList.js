@@ -4,7 +4,7 @@ const EmpList = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch('https://dummy.restapiexample.com/api/v1/employees')
+    fetch('https://dummy.restapiexample.com/api/v1/employees');
       .then(res => res.json())
       .then(data => setData(data.data)) 
       .catch(error => console.error('Error fetching data:', error)); 
