@@ -9,7 +9,7 @@ const App = () => {
     <Router>
       <div>
         <nav>
-          <ul>
+          <ul style={{display:"flex",gap:"1.5rem",listStyle:"none"}}>
             <li>
               <Link to="/page1">Page 1</Link>
             </li>
