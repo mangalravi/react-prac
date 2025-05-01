@@ -6,7 +6,11 @@ import Page1 from "./pages/page1";
 import Page2 from "./pages/page2";
 import Slider from "./pages/Slider";
 import OnlyReactPractice from "./pages/onlyreactpractice/OnlyReactPractice";
-import { PostsProvider } from "./pages/onlyreactpractice/ContextApi"; // Correct import
+import MorePractice from "./pages/MorePractice/MorePractice";
+import { PostsProvider } from "./pages/onlyreactpractice/ContextApi"; 
+import Axiosprac from "./pages/axios/Axiosprac";
+import { RoleProvider } from "./contexts/RoleContext";
+import Dashboard from "./pages/Dashboard";
 
 const App = () => {
   const theme = useSelector((state) => state.theme.theme);
@@ -22,6 +26,7 @@ const App = () => {
   };
 
   return (
+    <>
     <div style={appStyle}>
       <ThemeSwitcher />
       <Router>
@@ -40,6 +45,12 @@ const App = () => {
               <li>
                 <Link to="/reactpractice">ReactPractice</Link>
               </li>
+              <li>
+                <Link to="/morepractice">MorePractice</Link>
+              </li>
+              <li>
+                <Link to="/axiosprac">Axiosprac</Link>
+              </li>
             </ul>
           </nav>
           <Routes>
@@ -54,10 +65,16 @@ const App = () => {
                 </PostsProvider>
               }
             />
+          <Route path="/morepractice" element={<MorePractice />} />
+          <Route path="/axiosprac" element={<Axiosprac />} />
           </Routes>
         </div>
       </Router>
     </div>
+    <RoleProvider>
+      <Dashboard />
+    </RoleProvider>
+    </>
   );
 };
 

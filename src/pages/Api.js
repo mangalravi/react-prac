@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios'; // Import axios
+import axios from 'axios'; 
 
-export default function Api() {
+export default function  Api() {
   const [data, setData] = useState([]);
   const [originalData, setOriginalData] = useState([]);
   const [search, setSearch] = useState('');
@@ -14,13 +14,18 @@ export default function Api() {
     gender: '',
     image: ''
   });
- useEffect(() => {
-    axios("https://dummyjson.com/users")
-      .then(response => {
-        setOriginalData(response.data.users); 
-        setData(response.data.users); 
-      })
-      .catch(error => console.error('Error fetching data:', error));
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("https://dummyjson.com/users");
+        setOriginalData(response.data.users);
+        setData(response.data.users);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
   }, []);
  const handleFilter = (e) => {
     e.preventDefault();
