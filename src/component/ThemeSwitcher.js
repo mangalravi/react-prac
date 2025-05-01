@@ -13,7 +13,7 @@ const ThemeSwitcher = () => {
   };
 
   return (
-    <div style={{ textAlign: "center" }}>
+    <div style={{ textAlign: "center" ,display: "flex", gap: "1rem" , justifyContent: "center",marginBottom: "1rem",}}>
       <h2>Current Theme: {theme}</h2>
       <button onClick={() => handleThemeChange("light")}>Light Theme</button>
       <button onClick={() => handleThemeChange("dark")}>Dark Theme</button>
