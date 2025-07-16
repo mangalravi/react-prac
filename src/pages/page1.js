@@ -1,5 +1,4 @@
-// src/pages/Page1.js
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Table from "../table";
 
 const Page1 = () => {

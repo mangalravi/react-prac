@@ -1,42 +1,42 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Model from "./Model";
 import Dropdown from "./Dropdown";
 import EmpList from "./EmpList";
 import FormHandleing from "./FormHandleing";
 
 const Table = ({ data }) => {
-  const [searchRes, setSearchRes] = useState(data); 
+  const [searchRes, setSearchRes] = useState(data);
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setSearchRes(data); 
-   }, [data]);
+    setSearchRes(data);
+  }, [data]);
 
   const filterData = (e) => {
     const search = e.target.value;
-    setSearchTerm(search); 
+    setSearchTerm(search);
     if (search === "") {
-      setSearchRes(data); 
+      setSearchRes(data);
     } else {
-     const filteredRows = data.filter((row) =>
-        row.name.toLowerCase().includes(search.toLowerCase()) ||
-        row.phone.toLowerCase().includes(search.toLowerCase())
+      const filteredRows = data.filter(
+        (row) =>
+          row.name.toLowerCase().includes(search.toLowerCase()) ||
+          row.phone.toLowerCase().includes(search.toLowerCase())
       );
       setSearchRes(filteredRows);
     }
   };
- // Loading spinner while waiting for data
- if (loading) {
-  return <div>Loading...</div>;
-}
+  if (loading) {
+    return <div>Loading...</div>;
+  }
   return (
     <>
       <input
         type="text"
         placeholder="Search by Name or Phone"
-        value={searchTerm} 
-        onChange={filterData} 
+        value={searchTerm}
+        onChange={filterData}
       />
       <table className="table">
         <thead>
@@ -73,5 +73,3 @@ const Table = ({ data }) => {
 };
 
 export default Table;
-
-

@@ -1,33 +1,32 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 const SearchBar = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch('https://dummyjson.com/users')
+    fetch("https://dummyjson.com/users")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data); // Debugging the API response
-        setData(data.users);  
-        setSearchResults(data.users);  
+        console.log(data);
+        setData(data.users);
+        setSearchResults(data.users);
       })
-      .catch((error) => console.error('Error fetching data:', error));
+      .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
   const SearchItem = (e) => {
     const search = e.target.value;
 
-    // If search is empty, reset to full data
     if (search === "") {
       setSearchResults(data);
     } else {
-      // Filter data based on firstName
-      const filteredData = data.filter((item) =>
-        item.firstName && item.firstName.toLowerCase().includes(search.toLowerCase())
+      const filteredData = data.filter(
+        (item) =>
+          item.firstName &&
+          item.firstName.toLowerCase().includes(search.toLowerCase())
       );
 
-      // If no filtered data, show empty list
       setSearchResults(filteredData);
     }
   };

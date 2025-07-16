@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react'
 import axios from 'axios'
 import AxiosPostExample from './AxiosPostExample';
 import AxiosDeleteExample from './AxiosDeleteExample';
+import AxiosPutExample from './AxiosPutExample';
 import MultiApiFetching from './MultiApiFetching';
 
 const Axiosprac = () => {
@@ -34,7 +35,7 @@ const Axiosprac = () => {
     <h1>Axios post</h1>
     <AxiosPostExample />
     <h1>Axios put</h1>
-    <AxiosPostExample />
+    <AxiosPutExample />
     <h1>Axios delete</h1>
     <AxiosDeleteExample />
     <h1>MultiApi fetching</h1>

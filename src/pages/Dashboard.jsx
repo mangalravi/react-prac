@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { withRole } from '../hoc/withRole';
 import AdminPanel from '../component/AdminPanel';
 import UserProfile from '../component/UserProfile';

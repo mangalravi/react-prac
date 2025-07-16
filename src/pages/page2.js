@@ -1,6 +1,7 @@
 // src/pages/Page2.js
-import React from 'react';
+
 import Table from '../table';
+import ExtraPrac from './ExtraPrac';
 
 const Page2 = () => {
   const data2 = [
@@ -12,6 +13,7 @@ const Page2 = () => {
     <div>
       <h1>Page 2</h1>
       <Table data={data2} />
+      <ExtraPrac />
     </div>
   );
 };

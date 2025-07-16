@@ -1,4 +1,3 @@
-import React from "react";
 import Counter from "./Counter";
 import ToggleSwitch from "./ToggleSwitch";
 import ToDo from "./ToDo";

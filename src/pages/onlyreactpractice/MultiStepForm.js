@@ -1,29 +1,29 @@
-import React, { useState } from 'react';
+import { useState } from "react";
 
 const MultiStepForm = () => {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    age: '',
-    comments: ''
+    name: "",
+    email: "",
+    age: "",
+    comments: "",
   });
 
   const nextStep = () => setStep(step + 1);
   const previousStep = () => setStep(step - 1);
 
   const handleChange = (e) => {
-      const { name, value } = e.target;
-      setFormData((prevData) => ({
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
       ...prevData,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    localStorage.setItem('formData', JSON.stringify(formData));
-    console.log('Form submitted:', formData);
+    localStorage.setItem("formData", JSON.stringify(formData));
+    console.log("Form submitted:", formData);
   };
   const Step1 = ({ next, formData, handleChange }) => (
     <div className="step-container">
@@ -39,10 +39,12 @@ const MultiStepForm = () => {
           placeholder="Enter your name"
         />
       </div>
-      <button onClick={next} className="next-btn">Next</button>
+      <button onClick={next} className="next-btn">
+        Next
+      </button>
     </div>
   );
-  
+
   const Step2 = ({ next, previous, formData, handleChange }) => (
     <div className="step-container">
       <h2>Step 2</h2>
@@ -68,11 +70,15 @@ const MultiStepForm = () => {
           placeholder="Enter your age"
         />
       </div>
-      <button onClick={previous} className="prev-btn">Previous</button>
-      <button onClick={next} className="next-btn">Next</button>
+      <button onClick={previous} className="prev-btn">
+        Previous
+      </button>
+      <button onClick={next} className="next-btn">
+        Next
+      </button>
     </div>
   );
-  
+
   const Step3 = ({ previous, formData, handleSubmit }) => (
     <div className="step-container">
       <h2>Step 3</h2>
@@ -86,16 +92,39 @@ const MultiStepForm = () => {
           placeholder="Enter any comments"
         ></textarea>
       </div>
-      <button onClick={previous} className="prev-btn">Previous</button>
-      <button type="submit" onClick={handleSubmit} className="submit-btn">Submit</button>
+      <button onClick={previous} className="prev-btn">
+        Previous
+      </button>
+      <button type="submit" onClick={handleSubmit} className="submit-btn">
+        Submit
+      </button>
     </div>
   );
 
   return (
     <form onSubmit={handleSubmit} className="form-container">
-      {step === 1 && <Step1 next={nextStep} formData={formData} handleChange={handleChange} />}
-      {step === 2 && <Step2 next={nextStep} previous={previousStep} formData={formData} handleChange={handleChange} />}
-      {step === 3 && <Step3 previous={previousStep} formData={formData} handleSubmit={handleSubmit} />}
+      {step === 1 && (
+        <Step1
+          next={nextStep}
+          formData={formData}
+          handleChange={handleChange}
+        />
+      )}
+      {step === 2 && (
+        <Step2
+          next={nextStep}
+          previous={previousStep}
+          formData={formData}
+          handleChange={handleChange}
+        />
+      )}
+      {step === 3 && (
+        <Step3
+          previous={previousStep}
+          formData={formData}
+          handleSubmit={handleSubmit}
+        />
+      )}
     </form>
   );
 };

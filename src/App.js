@@ -11,6 +11,7 @@ import { PostsProvider } from "./pages/onlyreactpractice/ContextApi";
 import Axiosprac from "./pages/axios/Axiosprac";
 import { RoleProvider } from "./contexts/RoleContext";
 import Dashboard from "./pages/Dashboard";
+import HomePage from "./pages/HomePage";
 
 const App = () => {
   const theme = useSelector((state) => state.theme.theme);
@@ -51,6 +52,9 @@ const App = () => {
               <li>
                 <Link to="/axiosprac">Axiosprac</Link>
               </li>
+              <li>
+                <Link to="/homepage">homepage</Link>
+              </li>
             </ul>
           </nav>
           <Routes>
@@ -67,6 +71,7 @@ const App = () => {
             />
           <Route path="/morepractice" element={<MorePractice />} />
           <Route path="/axiosprac" element={<Axiosprac />} />
+          <Route path="/homepage" element={<HomePage />} />
           </Routes>
         </div>
       </Router>

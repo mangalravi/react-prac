@@ -1,9 +1,9 @@
-import React, { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState } from "react";
 
 const RoleContext = createContext();
 
 export const RoleProvider = ({ children }) => {
-  const [roles, setRoles] = useState(['admin']); // Can be ['admin'], ['user'], ['admin', 'user'], etc.
+  const [roles, setRoles] = useState(["admin"]); // Can be ['admin'], ['user'], ['admin', 'user'], etc.
 
   return (
     <RoleContext.Provider value={{ roles, setRoles }}>
